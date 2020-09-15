@@ -24,6 +24,7 @@
 		B5E310B02511387000C929BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310AF2511387000C929BB /* LoginViewController.swift */; };
 		B5E310B225114A1200C929BB /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310B125114A1200C929BB /* SetupProfileViewController.swift */; };
 		B5E310B425114FEB00C929BB /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310B325114FEB00C929BB /* AddPhotoView.swift */; };
+		B5E310B62511588400C929BB /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310B52511588400C929BB /* SegmentedControl + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B5E310AF2511387000C929BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5E310B125114A1200C929BB /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		B5E310B325114FEB00C929BB /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		B5E310B52511588400C929BB /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				B56D0D95250FEB500087901F /* UIImageView + Extension.swift */,
 				B57BD3C525100FDF0094404C /* StackView + Entension.swift */,
+				B5E310B52511588400C929BB /* SegmentedControl + Extension.swift */,
 				B56D0D8F250FE4060087901F /* UIFont + Extension.swift */,
 				B56D0D91250FE5940087901F /* UIColor + Extension.swift */,
 				B56D0D8D250FDF8C0087901F /* UIButton + Extension.swift */,
@@ -196,6 +199,7 @@
 				B5E310B425114FEB00C929BB /* AddPhotoView.swift in Sources */,
 				B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */,
 				B56D0D92250FE5940087901F /* UIColor + Extension.swift in Sources */,
+				B5E310B62511588400C929BB /* SegmentedControl + Extension.swift in Sources */,
 				B56D0D96250FEB500087901F /* UIImageView + Extension.swift in Sources */,
 				B57BD3C625100FDF0094404C /* StackView + Entension.swift in Sources */,
 				B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */,
