@@ -34,6 +34,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        googleButton.customizeGoogleButton()
         setupConstraints()
     }
     
@@ -51,12 +52,12 @@ class AuthViewController: UIViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            logoImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -100),
+            logoImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -40),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 30),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
