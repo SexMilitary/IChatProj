@@ -51,12 +51,13 @@ extension SetupProfileViewController {
                                        spacing: 12)
         
         goToChatsButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        let stackView = UIStackView(arrangedSubviews: [
-            fullNameStackView,
-            aboutMeStackView,
-            sexStackView,
-            goToChatsButton
-            ], axis: .vertical, spacing: 40)
+        
+        let stackView = UIStackView(arrangedSubviews: [fullNameStackView,
+                                                       aboutMeStackView,
+                                                       sexStackView,
+                                                       goToChatsButton],
+                                    axis: .vertical,
+                                    spacing: 40)
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         fullImageView.translatesAutoresizingMaskIntoConstraints = false
