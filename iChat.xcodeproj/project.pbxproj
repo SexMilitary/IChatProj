@@ -28,6 +28,9 @@
 		B5F9745F2512745F0006F5D2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9745E2512745F0006F5D2 /* ListViewController.swift */; };
 		B5F97461251274DE0006F5D2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F97460251274DE0006F5D2 /* MainTabBarController.swift */; };
 		B5F974632512754B0006F5D2 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F974622512754B0006F5D2 /* PeopleViewController.swift */; };
+		B5F974662514E5930006F5D2 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = B5F974642514E5930006F5D2 /* activeChats.json */; };
+		B5F974672514E5930006F5D2 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = B5F974652514E5930006F5D2 /* waitingChats.json */; };
+		B5F974692514E62D0006F5D2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F974682514E62D0006F5D2 /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		B5F9745E2512745F0006F5D2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B5F97460251274DE0006F5D2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B5F974622512754B0006F5D2 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		B5F974642514E5930006F5D2 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
+		B5F974652514E5930006F5D2 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
+		B5F974682514E62D0006F5D2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +124,10 @@
 				B5E310B325114FEB00C929BB /* AddPhotoView.swift */,
 				B57BD3C3251007CF0094404C /* ButtonFormView.swift */,
 				B5E310AD2511304200C929BB /* OneLineTextField.swift */,
+				B5F974682514E62D0006F5D2 /* Bundle-Decodable.swift */,
 				B57BD3C1251003A70094404C /* UIKit */,
+				B5F974642514E5930006F5D2 /* activeChats.json */,
+				B5F974652514E5930006F5D2 /* waitingChats.json */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -203,7 +212,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56D0D86250FCE640087901F /* LaunchScreen.storyboard in Resources */,
+				B5F974662514E5930006F5D2 /* activeChats.json in Resources */,
 				B56D0D83250FCE640087901F /* Assets.xcassets in Resources */,
+				B5F974672514E5930006F5D2 /* waitingChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +232,7 @@
 				B56D0D90250FE4060087901F /* UIFont + Extension.swift in Sources */,
 				B5F974632512754B0006F5D2 /* PeopleViewController.swift in Sources */,
 				B56D0D7E250FCE600087901F /* AuthViewController.swift in Sources */,
+				B5F974692514E62D0006F5D2 /* Bundle-Decodable.swift in Sources */,
 				B5E310B225114A1200C929BB /* SetupProfileViewController.swift in Sources */,
 				B56D0D94250FE9EE0087901F /* Label + Extension.swift in Sources */,
 				B57BD3C4251007CF0094404C /* ButtonFormView.swift in Sources */,
