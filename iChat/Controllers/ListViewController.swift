@@ -50,8 +50,8 @@ class ListViewController: UIViewController {
         collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
+        collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reudeID)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2" )
     }
     
     // MARK: - setup SearchBar
@@ -127,6 +127,14 @@ extension ListViewController {
 // MARK: - create DataSource & DiffableDataSource
 extension ListViewController {
     
+    private func configure<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reudeID, for: indexPath) as? T else {
+            fatalError("Unable to dequeue \(cellType)")
+        }
+        cell.configure(with: value)
+        return cell
+    }
+    
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView) { (collectionView, indexPath, chat) -> UICollectionViewCell? in
             
@@ -137,13 +145,11 @@ extension ListViewController {
             switch section {
                 
             case .activeChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-                cell.backgroundColor = .blue
-                return cell
-                
+                return self.configure(cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChats:
+//                return self.configure(cellType: ActiveChatCell.self, with: chat, for: indexPath)
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
-                cell.backgroundColor = .red
+                cell.backgroundColor = .systemRed
                 return cell
             }
         }
