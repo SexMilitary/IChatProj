@@ -8,21 +8,6 @@
 
 import UIKit
 
-struct MChat: Hashable, Decodable {
-    var username: String
-    var userImageString: String
-    var lastMessage: String
-    var id: Int
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: MChat, rhs: MChat) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-
 class ListViewController: UIViewController {
     
     let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
@@ -30,6 +15,15 @@ class ListViewController: UIViewController {
     
     enum Section: Int, CaseIterable {
         case waitingChats, activeChats
+        
+        func description() -> String {
+            switch self {
+            case .activeChats:
+                return "Active chats"
+            case .waitingChats:
+                return "Waiting Chats"
+            }
+        }
     }
     
     var collectionView: UICollectionView!
@@ -50,6 +44,7 @@ class ListViewController: UIViewController {
         collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
         
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reudeID)
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reudeID )
     }
@@ -85,42 +80,58 @@ extension ListViewController {
             
         }
         
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        
         return layout
     }
     
     private func createWaitingChats() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(88.0),
-                                               heightDimension: .absolute(88.0))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(88),
+                                               heightDimension: .absolute(88))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 20
-        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 20)
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 20, bottom: 0, trailing: 20)
         section.orthogonalScrollingBehavior = .continuous
         
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
     
     private func createActiveChats() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .absolute(86.0) )
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .absolute(78))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 20, bottom: 0, trailing: 20)
         section.interGroupSpacing = 8
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 20, bottom: 0, trailing: 20)
         
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
+    }
+    
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let sectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(1.0))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize,
+                                                                        elementKind: UICollectionView.elementKindSectionHeader,
+                                                                        alignment: .top)
+        return sectionHeader
     }
 }
 
@@ -149,6 +160,21 @@ extension ListViewController {
             case .waitingChats:
                 return self.configure(cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
+        }
+        
+        dataSource?.supplementaryViewProvider = {
+            collectionView, kind, indexPath in
+            
+            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader else {
+                fatalError("Can not create new section header in UICollectionViewDiffableDataSource")
+            }
+            guard let section = Section(rawValue: indexPath.section) else {
+                fatalError("Unknow section kind")
+            }
+            sectionHeader.configure(text: section.description(),
+                                    font: .laoSangamMN20(),
+                                    textColor: #colorLiteral(red: 0.5725490196, green: 0.5725490196, blue: 0.5725490196, alpha: 1))
+            return sectionHeader
         }
     }
     
