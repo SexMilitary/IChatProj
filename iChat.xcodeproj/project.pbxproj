@@ -12,6 +12,7 @@
 		B524EDBD25166224008224BE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDBC25166224008224BE /* ProfileViewController.swift */; };
 		B524EDC125166D43008224BE /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDC025166D43008224BE /* InsertableTextField.swift */; };
 		B524EDC4251673CB008224BE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDC3251673CB008224BE /* UIView + Extension.swift */; };
+		B524EDC725167CC6008224BE /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDC625167CC6008224BE /* ChatRequestViewController.swift */; };
 		B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D79250FCE600087901F /* AppDelegate.swift */; };
 		B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7B250FCE600087901F /* SceneDelegate.swift */; };
 		B56D0D7E250FCE600087901F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7D250FCE600087901F /* AuthViewController.swift */; };
@@ -52,6 +53,7 @@
 		B524EDBC25166224008224BE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B524EDC025166D43008224BE /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
 		B524EDC3251673CB008224BE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		B524EDC625167CC6008224BE /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
 		B56D0D76250FCE600087901F /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D0D79250FCE600087901F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56D0D7B250FCE600087901F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,8 +192,9 @@
 			children = (
 				B5F97460251274DE0006F5D2 /* MainTabBarController.swift */,
 				B5F974622512754B0006F5D2 /* PeopleViewController.swift */,
-				B524EDBC25166224008224BE /* ProfileViewController.swift */,
 				B5F9745E2512745F0006F5D2 /* ListViewController.swift */,
+				B524EDBC25166224008224BE /* ProfileViewController.swift */,
+				B524EDC625167CC6008224BE /* ChatRequestViewController.swift */,
 				B5F9746C2514F3290006F5D2 /* Cell */,
 				B5F9747625156C030006F5D2 /* Header */,
 			);
@@ -312,6 +315,7 @@
 				B56D0D7E250FCE600087901F /* AuthViewController.swift in Sources */,
 				B524EDBD25166224008224BE /* ProfileViewController.swift in Sources */,
 				B5F974692514E62D0006F5D2 /* Bundle-Decodable.swift in Sources */,
+				B524EDC725167CC6008224BE /* ChatRequestViewController.swift in Sources */,
 				B5E310B225114A1200C929BB /* SetupProfileViewController.swift in Sources */,
 				B56D0D94250FE9EE0087901F /* Label + Extension.swift in Sources */,
 				B57BD3C4251007CF0094404C /* ButtonFormView.swift in Sources */,
