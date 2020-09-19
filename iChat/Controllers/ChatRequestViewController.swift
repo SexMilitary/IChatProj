@@ -34,6 +34,7 @@ class ChatRequestViewController: UIViewController {
         denyButton.layer.borderColor = #colorLiteral(red: 0.8352941176, green: 0.2, blue: 0.2, alpha: 1)
         containerView.backgroundColor = .mainWhite()
         containerView.layer.cornerRadius = 30
+        aboutMeLabel.numberOfLines = 0
     }
     
     override func viewWillLayoutSubviews() {
