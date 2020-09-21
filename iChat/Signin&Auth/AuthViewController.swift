@@ -29,6 +29,9 @@ class AuthViewController: UIViewController {
                                titleColor: .buttonRed(),
                                backgroundColor: .white,
                                isShadow: true)
+    
+    let signUpVC = SignUpViewController()
+    let loginVC = LoginViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,23 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .white
         googleButton.customizeGoogleButton()
         setupConstraints()
+        
+        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func emailButtonTapped() {
+        print(#function)
+        present(signUpVC, animated: true) {
+            
+        }
+    }
+    
+    @objc private func loginButtonTapped() {
+        print(#function)
+        present(loginVC, animated: true) {
+            
+        }
     }
     
     private func setupConstraints() {
@@ -52,7 +72,7 @@ class AuthViewController: UIViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            logoImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -40),
+            logoImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         

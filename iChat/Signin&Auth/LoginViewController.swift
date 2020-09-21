@@ -40,6 +40,21 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         googleButton.customizeGoogleButton()
         setupConstraints()
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    @objc private func loginButtonTapped() {
+        AuthService.shared.login(email: emailTextField.text,
+                                 password: passwordTextField.text) { (result) in
+            switch result {
+            
+            case .success(let user):
+                self.showAlert(with: "Succes!", and: "You are logged in.")
+            case .failure(let error):
+                self.showAlert(with: "Error!", and: error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -62,7 +77,7 @@ extension LoginViewController {
         signInButton.contentHorizontalAlignment = .leading
         let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signInButton],
                                           axis: .horizontal,
-                                          spacing: 0)
+                                          spacing: 5)
         bottomStackView.alignment = .firstBaseline
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false

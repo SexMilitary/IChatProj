@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		B57BD3C625100FDF0094404C /* StackView + Entension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BD3C525100FDF0094404C /* StackView + Entension.swift */; };
 		B59778282515E0B200BFC83C /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59778272515E0B200BFC83C /* MUser.swift */; };
 		B597782A2515E0B800BFC83C /* MChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59778292515E0B800BFC83C /* MChat.swift */; };
+		B5C0EC1125190589004647DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0EC1025190589004647DE /* AuthService.swift */; };
 		B5E310AC2511301E00C929BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310AB2511301E00C929BB /* SignUpViewController.swift */; };
 		B5E310AE2511304200C929BB /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310AD2511304200C929BB /* OneLineTextField.swift */; };
 		B5E310B02511387000C929BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E310AF2511387000C929BB /* LoginViewController.swift */; };
@@ -76,6 +77,7 @@
 		B57BD3C525100FDF0094404C /* StackView + Entension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Entension.swift"; sourceTree = "<group>"; };
 		B59778272515E0B200BFC83C /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		B59778292515E0B800BFC83C /* MChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChat.swift; sourceTree = "<group>"; };
+		B5C0EC1025190589004647DE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B5E310AB2511301E00C929BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B5E310AD2511304200C929BB /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		B5E310AF2511387000C929BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				7BEC31CC49AD51C98C9E321E /* Pods-iChat.debug.xcconfig */,
 				472DFE7AA7F0D50B4D12EBF8 /* Pods-iChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,7 +150,7 @@
 			children = (
 				B56D0D79250FCE600087901F /* AppDelegate.swift */,
 				B56D0D7B250FCE600087901F /* SceneDelegate.swift */,
-				B597782B2515E12100BFC83C /* Models */,
+				B5C0EC0F2519056B004647DE /* Services */,
 				B5F9745D251274460006F5D2 /* Controllers */,
 				B5F9745C251273FD0006F5D2 /* Signin&Auth */,
 				B5F9747325154C310006F5D2 /* Protocols */,
@@ -202,6 +203,15 @@
 				B59778292515E0B800BFC83C /* MChat.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B5C0EC0F2519056B004647DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0EC1025190589004647DE /* AuthService.swift */,
+				B597782B2515E12100BFC83C /* Models */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B5F9745C251273FD0006F5D2 /* Signin&Auth */ = {
@@ -404,6 +414,7 @@
 				B56D0D96250FEB500087901F /* UIImageView + Extension.swift in Sources */,
 				B57BD3C625100FDF0094404C /* StackView + Entension.swift in Sources */,
 				B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */,
+				B5C0EC1125190589004647DE /* AuthService.swift in Sources */,
 				B5E310B02511387000C929BB /* LoginViewController.swift in Sources */,
 				B56D0D8E250FDF8C0087901F /* UIButton + Extension.swift in Sources */,
 			);
