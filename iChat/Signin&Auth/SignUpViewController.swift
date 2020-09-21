@@ -30,6 +30,8 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    weak var delegate: AuthNavigationDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,8 @@ class SignUpViewController: UIViewController {
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+
     }
     
     @objc private func signUpButtonTapped() {
@@ -46,10 +50,18 @@ class SignUpViewController: UIViewController {
                                     confirmPassword: confirmPasswordTextField.text) { (result) in
             switch result {
             case .success(_):
-                self.showAlert(with: "Succes!", and: "Register is done.")
+                self.showAlert(with: "Succes!", and: "Register is done.") {
+                    self.present(SetupProfileViewController(), animated: true, completion: nil)
+                }
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }
+        }
+    }
+    
+    @objc private func loginButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.toLoginVC()
         }
     }
 }
@@ -76,7 +88,7 @@ extension SignUpViewController {
         let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel,
                                                              loginButton],
                                           axis: .horizontal,
-                                          spacing: 10)
+                                          spacing: 5)
         bottomStackView.alignment = .firstBaseline
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -108,9 +120,11 @@ extension SignUpViewController {
 
 extension UIViewController {
     
-    func showAlert(with title: String, and message: String) {
+    func showAlert(with title: String, and message: String, completion: @escaping() -> Void = { }) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Ok", style: .default) { (_) in
+            completion()
+        }
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
     }
