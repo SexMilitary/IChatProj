@@ -20,7 +20,6 @@ class Validators {
             return false
         }
         return true
-        print("test 1")
     }
     
     static func isSimpleEmail(_ email: String) -> Bool {
