@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
             case .success(let user):
                 self.showAlert(with: "Succes!", and: "You are logged in.")
             case .failure(let error):
-                self.showAlert(with: "Error!", and: error.localizedDescription)
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }
         }
     }
