@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol AuthNavigationDelegate: class {
-    func toLoginVC()
-    func toSignUpVC()
-}
-
 class LoginViewController: UIViewController {
     
     let welcomeLabel = UILabel(text: "Welcome back!", font: .avenir26())
@@ -57,9 +52,9 @@ class LoginViewController: UIViewController {
                                  password: passwordTextField.text) { (result) in
             switch result {
             
-            case .success(let user):
+            case .success(_):
                 self.showAlert(with: "Succes!", and: "You are logged in.") {
-                    self.present(MainTabBarController(), animated: true, completion: nil)
+//                    self.present(MainTabBarController(), animated: true, completion: nil)
                 }
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
