@@ -27,6 +27,18 @@ class PeopleViewController: UIViewController {
         }
     }
     
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +49,6 @@ class PeopleViewController: UIViewController {
         setupCollectionView()
         createDataSource()
         reloadData(with: nil)
-        
     }
     
     @objc private func signOut() {
