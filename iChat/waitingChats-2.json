@@ -3,30 +3,30 @@
         "username": "Peter Brown",
         "userImageString": "human6",
         "lastMessage": "Are you going to ride a bike today?",
-        "id": 11
+        "id": 6
     },
     {
         "username": "Sarah White",
         "userImageString": "human7",
         "lastMessage": "Wow!",
-        "id": 12
+        "id": 7
     },
     {
         "username": "Melven Sandro",
         "userImageString": "human8",
         "lastMessage": "Hello!",
-        "id": 13
+        "id": 8
     },
     {
         "username": "Nike Rose",
         "userImageString": "human9",
         "lastMessage": "Nice to meet you",
-        "id": 14
+        "id": 9
     },
     {
         "username": "Andrey Velvet",
         "userImageString": "human10",
         "lastMessage": "How much?",
-        "id": 15
+        "id": 10
     }
 ]
