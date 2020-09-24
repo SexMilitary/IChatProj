@@ -57,7 +57,13 @@ class PeopleViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Sign out", style: .destructive, handler: { _ in
             do {
                 try Auth.auth().signOut()
-                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .map({$0 as? UIWindowScene})
+                        .compactMap({$0})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                keyWindow?.rootViewController = AuthViewController()
             } catch {
                 print("Error signing out: \(error.localizedDescription)")
             }
