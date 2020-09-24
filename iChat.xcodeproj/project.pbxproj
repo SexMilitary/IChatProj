@@ -16,6 +16,8 @@
 		B524EDC4251673CB008224BE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDC3251673CB008224BE /* UIView + Extension.swift */; };
 		B524EDC725167CC6008224BE /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524EDC625167CC6008224BE /* ChatRequestViewController.swift */; };
 		B541888A251C86130089E36C /* UIAplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5418889251C86130089E36C /* UIAplication + Extension.swift */; };
+		B54188A7251CCA920089E36C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54188A6251CCA920089E36C /* StorageService.swift */; };
+		B54188AA251CCEF20089E36C /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54188A9251CCEF20089E36C /* UIImage + Extension.swift */; };
 		B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D79250FCE600087901F /* AppDelegate.swift */; };
 		B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7B250FCE600087901F /* SceneDelegate.swift */; };
 		B56D0D7E250FCE600087901F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7D250FCE600087901F /* AuthViewController.swift */; };
@@ -68,6 +70,8 @@
 		B524EDC3251673CB008224BE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		B524EDC625167CC6008224BE /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
 		B5418889251C86130089E36C /* UIAplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication + Extension.swift"; sourceTree = "<group>"; };
+		B54188A6251CCA920089E36C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		B54188A9251CCEF20089E36C /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		B56D0D76250FCE600087901F /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D0D79250FCE600087901F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56D0D7B250FCE600087901F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				B5E310B52511588400C929BB /* SegmentedControl + Extension.swift */,
 				B56D0D8F250FE4060087901F /* UIFont + Extension.swift */,
 				B56D0D91250FE5940087901F /* UIColor + Extension.swift */,
+				B54188A9251CCEF20089E36C /* UIImage + Extension.swift */,
 				B56D0D8D250FDF8C0087901F /* UIButton + Extension.swift */,
 				B56D0D93250FE9EE0087901F /* Label + Extension.swift */,
 			);
@@ -237,6 +242,7 @@
 			children = (
 				B5C0EC1025190589004647DE /* AuthService.swift */,
 				B5BDC8F3251A759700C6B079 /* FirestoreService.swift */,
+				B54188A6251CCA920089E36C /* StorageService.swift */,
 				B597782B2515E12100BFC83C /* Models */,
 			);
 			path = Services;
@@ -461,12 +467,14 @@
 				B5E310B425114FEB00C929BB /* AddPhotoView.swift in Sources */,
 				B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */,
 				B524EDC4251673CB008224BE /* UIView + Extension.swift in Sources */,
+				B54188A7251CCA920089E36C /* StorageService.swift in Sources */,
 				B56D0D92250FE5940087901F /* UIColor + Extension.swift in Sources */,
 				B5F9747225154C0F0006F5D2 /* SelfConfigurationCell.swift in Sources */,
 				B5153C8325162E360001C3F0 /* UserCell.swift in Sources */,
 				B5153C862516306B0001C3F0 /* UIViewController + Extension.swift in Sources */,
 				B5E310B62511588400C929BB /* SegmentedControl + Extension.swift in Sources */,
 				B5F9747025154A890006F5D2 /* WaitingChatCell.swift in Sources */,
+				B54188AA251CCEF20089E36C /* UIImage + Extension.swift in Sources */,
 				B56D0D96250FEB500087901F /* UIImageView + Extension.swift in Sources */,
 				B57BD3C625100FDF0094404C /* StackView + Entension.swift in Sources */,
 				B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */,
