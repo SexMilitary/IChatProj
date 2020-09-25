@@ -19,6 +19,8 @@ class FirestoreService {
         return db.collection("users")
     }
     
+    var currentUser: MUser!
+    
     private init() {}
     
     func getUserData(user: User, completion: @escaping (Result<MUser, Error>) -> Void) {
@@ -29,6 +31,7 @@ class FirestoreService {
                     completion(.failure(UserError.cannotUnwrapToMUser))
                     return
                 }
+                self.currentUser = muser
                 completion(.success(muser))
             } else {
                 completion(.failure(UserError.cannotGetUserInfo))
@@ -72,4 +75,34 @@ class FirestoreService {
             }
         } // StorageService
     } // saveProfileWith
-}
+    
+    func createWaitingChat(message: String, receiver: MUser, completion: @escaping (Result<Void, Error>) -> Void) {
+        // prepare ref
+        let reference = db.collection(["users", receiver.id, "waitingChats"].joined(separator: "/"))
+        let messagesRef = reference.document(self.currentUser.id).collection("messages")
+        
+        //prepare data with model
+        let message = MMessage(user: currentUser, content: message)
+        let chat = MChat(friendUsername: currentUser.username,
+                         friendAvatarStringURL:
+                            currentUser.avatarStringURL,
+                         lastMessageContent: message.content,
+                         friendId: currentUser.id)
+        
+        // add fields with chatInfo in WaitingChats collection
+        reference.document(currentUser.id).setData(chat.representation) { (error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            // add message document in waitingChats
+            messagesRef.addDocument(data: message.representation) { (error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(Void()))
+            }
+        }
+    } // func createWaitingChat
+} // class FirestoreService

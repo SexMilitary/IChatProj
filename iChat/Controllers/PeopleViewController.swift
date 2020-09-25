@@ -70,8 +70,9 @@ class PeopleViewController: UIViewController {
         collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
         
-        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
+        collectionView.delegate = self
         
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reudeID)
     }
     
@@ -99,6 +100,16 @@ class PeopleViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension PeopleViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        self.present(profileVC, animated: true, completion: nil)
+    }
+}
+
 // MARK: - Actions
 extension PeopleViewController {
     @objc private func signOut() {
@@ -107,7 +118,14 @@ extension PeopleViewController {
         ac.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
             do {
                 try Auth.auth().signOut()
-                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+                // 'keyWindow' was deprecated in iOS 13.0 solving
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .map({$0 as? UIWindowScene})
+                        .compactMap({$0})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                keyWindow?.rootViewController = AuthViewController()
             } catch {
                 print("Error signing out: \(error.localizedDescription)")
             }
@@ -130,6 +148,7 @@ extension PeopleViewController {
             }
         })
         
+        // section Header
         dataSource?.supplementaryViewProvider = {
             collectionView, kind, indexPath in
             guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader else { fatalError("Can not create new section header") }

@@ -10,8 +10,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    let activeChats = Bundle.main.decode([MChat].self, from: "activeChats-2.json")
-    let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats-2.json")
+    let activeChats = [MChat]()
+    let waitingChats = [MChat]()
     
     enum Section: Int, CaseIterable {
         case  waitingChats, activeChats
@@ -19,9 +19,9 @@ class ListViewController: UIViewController {
         func description() -> String {
             switch self {
             case .waitingChats:
-                return "Waiting chats-2"
+                return "Waiting chats"
             case .activeChats:
-                return "Active chats-2"
+                return "Active chats"
             }
         }
     }
