@@ -236,8 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				B59778272515E0B200BFC83C /* MUser.swift */,
-				B561C40C251E73C4008FE6AE /* MMessage.swift */,
 				B59778292515E0B800BFC83C /* MChat.swift */,
+				B561C40C251E73C4008FE6AE /* MMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
