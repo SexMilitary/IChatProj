@@ -34,6 +34,8 @@ class ListViewController: UIViewController {
     
     private let currentUser: MUser
     
+    let defaults = UserDefaults.standard
+    
     init(currentUser: MUser) {
         self.currentUser = currentUser
         super.init(nibName: nil, bundle: nil)
@@ -60,7 +62,19 @@ class ListViewController: UIViewController {
             switch result {
             
             case .success(let chats):
+                // TODO: Test it!
+                let waitingChatsOld = self.defaults.integer(forKey: "waitingChatsCount")
+                
+                if waitingChatsOld < chats.count {
+                    let chatRequestVC = ChatRequestViewController(chat: chats.last!)
+                    chatRequestVC.delegate = self
+                    self.present(chatRequestVC, animated: true, completion: nil)
+                }
                 self.waitingChats = chats
+                
+                let waitingChatsCount = chats.count
+                self.defaults.set(waitingChatsCount, forKey: "waitingChatsCount")
+                
                 self.reloadData()
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
@@ -89,6 +103,8 @@ class ListViewController: UIViewController {
         
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reudeID)
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reudeID)
+        
+        collectionView.delegate = self
     }
     
     private func reloadData() {
@@ -100,6 +116,42 @@ class ListViewController: UIViewController {
         snapshot.appendItems(activeChats, toSection: .activeChats)
 
         dataSource?.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+// MARK: - WaitingChatsNavigation
+extension ListViewController: WaitingChatsNavigation {
+    func removeWaitingChat(chat: MChat) {
+        FirestoreService.shared.deleteWaitingChat(chat: chat) { (result) in
+            switch result {
+            case .success():
+                self.showAlert(with: "Запрос откланен", and: "Чат с \(chat.friendUsername) успешно удален!")
+            case .failure(let error):
+                self.showAlert(with: "Ошибка", and: error.localizedDescription)
+            }
+        }
+    }
+    
+    func chatToActive(chat: MChat) {
+        print(#function)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension ListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let chat = self.dataSource?.itemIdentifier(for: indexPath) else { return }
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .waitingChats:
+            let chatRequestVC = ChatRequestViewController(chat: chat)
+            chatRequestVC.delegate = self
+            self.present(chatRequestVC, animated: true, completion: nil)
+        case .activeChats:
+            print(indexPath)
+        }
     }
 }
 

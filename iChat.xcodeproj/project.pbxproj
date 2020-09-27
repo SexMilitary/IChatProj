@@ -19,6 +19,7 @@
 		B54188A7251CCA920089E36C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54188A6251CCA920089E36C /* StorageService.swift */; };
 		B54188AA251CCEF20089E36C /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54188A9251CCEF20089E36C /* UIImage + Extension.swift */; };
 		B561C40D251E73C4008FE6AE /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B561C40C251E73C4008FE6AE /* MMessage.swift */; };
+		B561C41125208C23008FE6AE /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B561C41025208C22008FE6AE /* WaitingChatsNavigation.swift */; };
 		B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D79250FCE600087901F /* AppDelegate.swift */; };
 		B56D0D7C250FCE600087901F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7B250FCE600087901F /* SceneDelegate.swift */; };
 		B56D0D7E250FCE600087901F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D0D7D250FCE600087901F /* AuthViewController.swift */; };
@@ -75,6 +76,7 @@
 		B54188A6251CCA920089E36C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		B54188A9251CCEF20089E36C /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		B561C40C251E73C4008FE6AE /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
+		B561C41025208C22008FE6AE /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		B56D0D76250FCE600087901F /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D0D79250FCE600087901F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56D0D7B250FCE600087901F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				B5F9747125154C0F0006F5D2 /* SelfConfigurationCell.swift */,
 				B5BDC8F0251A70A600C6B079 /* AuthNavigationDelegate.swift */,
+				B561C41025208C22008FE6AE /* WaitingChatsNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				B56D0D94250FE9EE0087901F /* Label + Extension.swift in Sources */,
 				B57BD3C4251007CF0094404C /* ButtonFormView.swift in Sources */,
 				B5B20CA1251A7BFE0044F785 /* UserError.swift in Sources */,
+				B561C41125208C23008FE6AE /* WaitingChatsNavigation.swift in Sources */,
 				B5E310B425114FEB00C929BB /* AddPhotoView.swift in Sources */,
 				B56D0D7A250FCE600087901F /* AppDelegate.swift in Sources */,
 				B524EDC4251673CB008224BE /* UIView + Extension.swift in Sources */,
